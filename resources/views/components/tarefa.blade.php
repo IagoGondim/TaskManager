@@ -103,28 +103,7 @@
             });
         });
 
-        // Função para deletar uma tarefa
-        function deletarTarefa(id) {
-            if (confirm('Tem certeza que deseja excluir esta tarefa?')) {
-                fetch(`/tarefas/${id}`, {
-                    method: 'DELETE',
-                    headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    }
-                })
-                .then(response => {
-                    if (response.ok) {
-                        console.log('Tarefa excluída com sucesso.');
-                        window.location.reload();
-                    } else {
-                        console.error('Erro ao excluir tarefa.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Erro ao excluir tarefa:', error);
-                });
-            }
-        }
+ 
     </script>
 
 </body>
