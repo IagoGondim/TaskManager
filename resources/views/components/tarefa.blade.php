@@ -15,14 +15,12 @@
 
 <body>
     <x-app-layout>
-        <!-- Modal para adicionar tarefa -->
         <div id="myModal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
             <div class="modal-content bg-white rounded-lg p-8">
                 <span class="close absolute top-0 right-0 cursor-pointer p-2">&times;</span>
                 <h2 class="text-2xl font-bold mb-4">Adicionar Tarefa</h2>
-                <!-- Formulário para adicionar tarefa -->
                 <form method="post" action="{{ route('tarefas.criar') }}">
-                    @csrf <!-- Proteção contra CSRF -->
+                    @csrf
                     <div class="mb-4">
                         <label for="titulo" class="block mb-2">Título:</label>
                         <input type="text" id="titulo" name="titulo" required
@@ -48,14 +46,12 @@
             </div>
         </div>
 
-        <!-- Modal para editar tarefa -->
         <div id="editModal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
             <div class="modal-content bg-white rounded-lg p-8">
                 <span class="close absolute top-0 right-0 cursor-pointer p-2">&times;</span>
                 <h2 class="text-2xl font-bold mb-4">Editar Tarefa</h2>
-                <!-- Formulário para editar tarefa -->
-                <form id="editForm" method="post" action="">
-                    @csrf <!-- Proteção contra CSRF -->
+                <form id="editForm" method="post" action="{{ route('tarefas.editar', ['id' => ':id']) }}">
+                    @csrf 
                     @method('PATCH')
                     <div class="mb-4">
                         <label for="editTitulo" class="block mb-2">Título:</label>
@@ -90,7 +86,6 @@
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Tarefas Existentes:</h2>
             <ul>
-                <!-- Loop de tarefas existentes -->
                 @foreach ($tarefas as $tarefa)
                     <li class="mb-2">
                         <input type="checkbox" class="mr-2">

@@ -23,12 +23,14 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 Route::middleware('auth')->group(function () {
     Route::get('/tarefas', [TarefaController::class, 'listAll'])->name('tarefas.listAll');
     Route::post('/tarefas', [TarefaController::class, 'criarTarefa'])->name('tarefas.criar');
-    Route::patch('/tarefas/{id}', [TarefaController::class, 'editarTarefa'])->name('tarefas.editar'); 
+    Route::patch('/tarefas/{id}', [TarefaController::class, 'editarTarefa'])->name('tarefas.editar'); // Rota para editar tarefas
     Route::delete('/tarefas/{id}', [TarefaController::class, 'deletarTarefa'])->name('tarefas.deletar');
 });
+
 
 
 
