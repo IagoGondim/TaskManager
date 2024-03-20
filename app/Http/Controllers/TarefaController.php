@@ -20,6 +20,7 @@ class TarefaController extends Controller
         return view('components.tarefa', $data);
     }
 
+
     public function criarTarefa(Request $request)
     {
         $validatedData = $request->validate([
@@ -33,18 +34,18 @@ class TarefaController extends Controller
         return redirect()->route('tarefas.listAll')->with('success', 'Tarefa criada com sucesso!');
     }
 
-    public function editarTarefa(Request $request, $id)
-    {
-        $validatedData = $request->validate([
-            'titulo' => 'required|string',
-            'descricao' => 'required|string',
-            'categoria_id' => 'required|exists:categorias,id'
-        ]);
+public function editarTarefa(Request $request, $id)
+{
+    $validatedData = $request->validate([
+        'titulo' => 'required|string',
+        'descricao' => 'required|string',
+        'categoria_id' => 'required|exists:categorias,id'
+    ]);
 
-        $this->tarefaService->editarTarefa($validatedData, $id);
+    $this->tarefaService->editarTarefa($validatedData, $id);
 
-        return redirect()->route('tarefas.listAll')->with('success', 'Tarefa atualizada com sucesso!');
-    }
+    return redirect()->route('tarefas.listAll')->with('success', 'Tarefa atualizada com sucesso!');
+}
 
     public function deletarTarefa($id)
     {

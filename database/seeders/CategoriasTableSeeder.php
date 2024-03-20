@@ -17,14 +17,12 @@ class CategoriasTableSeeder extends Seeder
         Categoria::create([
             'nome' => 'Pessoal',
         ]);
-
         Categoria::create([
             'nome' => 'Estudo',
         ]);
         Categoria::create([
             'nome' => 'Trabalho',
         ]);
-
         Categoria::create([
             'nome' => 'Compras',
         ]);

@@ -28,12 +28,13 @@ class TarefaService
         return $this->tarefaRepository->create($data);
     }
 
-    public function editarTarefa(array $data, $id)
-    {
-        $tarefa = $this->tarefaRepository->findOrFail($id);
-        $tarefa->update($data);
-        return $tarefa;
-    }
+public function editarTarefa(array $data, $id)
+{
+    $tarefa = $this->tarefaRepository->findOrFail($id);
+    $tarefa->update($data);
+    return $tarefa;
+}
+
 
     public function deletarTarefa($id)
     {
